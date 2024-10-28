@@ -20,8 +20,8 @@ Temas:
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 221022337  |  João Vitor Santos de Oliveira |
+| 221022275  |  Felipe Amorim de Araújo |
 
 ## Sobre 
 Descreva os objetivos do seu projeto e como ele funciona. 
