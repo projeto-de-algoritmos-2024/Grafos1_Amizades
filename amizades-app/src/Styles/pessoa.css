@@ -1,0 +1,26 @@
+.pessoa-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.pessoa-form {
+  background-color: #282828;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+.pessoa-form label {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.pessoa-form button {
+  margin-top: 20px;
+}

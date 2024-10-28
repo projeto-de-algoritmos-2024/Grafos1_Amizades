@@ -15,3 +15,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  color: inherit;
+  border: none;
+  border-radius: 10px;
+  padding: 7px;
+  background-color: #3C3C3C;
+}
+
+button {
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #3C3C3C;
+  padding: 10px;
+  border-radius: 10px;
+  transition: 500ms;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #646464;
+}
