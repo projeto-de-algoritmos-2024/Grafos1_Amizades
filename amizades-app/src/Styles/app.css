@@ -1,0 +1,8 @@
+.App {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  padding: 20px;
+  gap: 30px;
+}
