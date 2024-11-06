@@ -7,34 +7,65 @@ function CadastrarPessoa() {
   const [idade, setIdade] = useState("");
   const [ocupacao, setOcupacao] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Objeto com os dados da pessoa
+    const pessoa = {
+      nome,
+      idade,
+      ocupacao,
+    };
+
+    // Recupera os dados existentes no localStorage ou cria um array vazio
+    const pessoasSalvas = JSON.parse(localStorage.getItem("pessoas")) || [];
+
+    // Adiciona a nova pessoa ao array
+    pessoasSalvas.push(pessoa);
+
+    // Salva o array atualizado no localStorage
+    localStorage.setItem("pessoas", JSON.stringify(pessoasSalvas));
+
+    // Limpa os campos do formulário
+    setNome("");
+    setIdade("");
+    setOcupacao("");
+  };
+
   return (
     <div className="pessoa-container">
-      <form className="pessoa-form">
+      <form className="pessoa-form" onSubmit={handleSubmit}>
         <h2>Cadastrar pessoa</h2>
-        <label>
+        <label id="nome">
           Nome:
-          <input 
-            type="text" 
-            value={nome} 
-            onChange={(e) => setNome(e.target.value)} 
-          />
         </label>
-        <label>
+        <input 
+          type="text"
+          id="nome"
+          required
+          value={nome} 
+          onChange={(e) => setNome(e.target.value)} 
+        />
+        <label id="idade">
           Idade:
-          <input
-            type="text"
-            value={idade}
-            onChange={(e) => setIdade(e.target.value)}
-          />
         </label>
-        <label>
+        <input
+          type="number"
+          id="idade"
+          required
+          value={idade}
+          onChange={(e) => setIdade(e.target.value)}
+        />
+        <label id="ocupacao">
           Ocupação:
-          <input 
-            type="text"
-            value={ocupacao}
-            onChange={(e) => setOcupacao(e.target.value)}
-          />
         </label>
+        <input 
+          type="text"
+          id="ocupacao"
+          required
+          value={ocupacao}
+          onChange={(e) => setOcupacao(e.target.value)}
+        />
         <button>Cadastrar</button>
       </form>
     </div>

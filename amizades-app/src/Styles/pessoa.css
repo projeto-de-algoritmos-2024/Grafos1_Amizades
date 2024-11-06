@@ -24,3 +24,13 @@
 .pessoa-form button {
   margin-top: 20px;
 }
+/*Remover as setinhas do navegador */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
