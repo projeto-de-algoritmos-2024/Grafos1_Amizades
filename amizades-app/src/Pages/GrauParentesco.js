@@ -5,7 +5,7 @@ function GrauParentesco() {
 
   const [pessoas, setPessoas] = useState([]);
   const [primeiraPessoa, setPrimeiraPessoa] = useState("");
-  const [segundaPessoa, setSegundaPessoa] = useState("");
+  const [grau, setGrau] = useState([]);
 
   useEffect(() => {
     const pessoasCadastradas = JSON.parse(localStorage.getItem("pessoas")) || [];
@@ -16,13 +16,13 @@ function GrauParentesco() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(primeiraPessoa, segundaPessoa);
+    console.log(primeiraPessoa);
   }
 
   return (
     <div className="parentesco-container">
       <form className="parentesco-form" onSubmit={handleSubmit}>
-        <h2>Grau de Parentesco</h2>
+        <h2>Grau Parentesco</h2>
         <label>Pessoa 1:</label>
         <input list="pessoa1" onChange={(e) => setPrimeiraPessoa(e.target.value)}/>
           <datalist id="pessoa1">
@@ -30,13 +30,14 @@ function GrauParentesco() {
               <option key={pessoa.nome} value={pessoa.nome}/>
             ))}
           </datalist>  
-        <label>Pessoa 2:</label>  
-        <input list="pessoa2" onChange={(e) => setSegundaPessoa(e.target.value)}/>
-          <datalist id='pessoa2'>
-            {pessoas?.map((pessoa) => (
-              <option key={pessoa.nome} value={pessoa.nome}/>
-            ))}
-          </datalist>  
+        <label id="grau">Grau parenteco:</label>
+        <input
+          type="number"
+          id="grau"
+          required
+          value={grau}
+          onChange={(e) => setGrau(e.target.value)}
+        />
         <button>Confirmar</button>
       </form>
     </div>

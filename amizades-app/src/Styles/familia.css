@@ -1,4 +1,4 @@
-.parentesco-container {
+.familia-container {
     display: flex;
     padding-left: 50px;
     width: 100%;
@@ -7,7 +7,7 @@
     align-items: center;
   }
   
-  .parentesco-form {
+  .familia-form {
       background-color: #282828;
       border-radius: 10px;
       display: flex;
@@ -16,13 +16,13 @@
       gap: 10px;
   }
   
-  .parentesco-form label {
+  .familia-form label {
       display: flex;
       gap: 5px;
       flex-direction: column;
   }
   
-  .parentesco-form button {
+  .familia-form button {
       margin-top: 20px;
   }
   

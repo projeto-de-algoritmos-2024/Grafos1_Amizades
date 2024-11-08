@@ -7,20 +7,26 @@
 }
 
 .relacao-form {
-    background-color: #282828;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    gap: 10px;
+  width: 40%;
+  background-color: #282828;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
 }
 
 .relacao-form label {
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
 }
 
 .relacao-form button {
-    margin-top: 20px;
+  margin-top: 20px;
+}
+
+.relacao-erro {
+  text-wrap: wrap;
+  color: red;
 }
