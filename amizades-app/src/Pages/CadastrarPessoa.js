@@ -10,15 +10,17 @@ function CadastrarPessoa() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
+    // Recupera os dados existentes no localStorage ou cria um array vazio
+    const pessoasSalvas = JSON.parse(localStorage.getItem("pessoas")) || [];
+
     // Objeto com os dados da pessoa
     const pessoa = {
+      id: pessoasSalvas.length,
       nome,
       idade,
       ocupacao,
+      relacoes: []
     };
-
-    // Recupera os dados existentes no localStorage ou cria um array vazio
-    const pessoasSalvas = JSON.parse(localStorage.getItem("pessoas")) || [];
 
     // Adiciona a nova pessoa ao array
     pessoasSalvas.push(pessoa);
