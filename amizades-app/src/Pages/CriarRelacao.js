@@ -16,8 +16,8 @@ function CriarRelacao() {
 
   const [pessoas, setPessoas] = useState([]);
   const [errMsg, setErrMsg] = useState("");
-  const [primeiraPessoa, setPrimeiraPessoa] = useState("");
-  const [segundaPessoa, setSegundaPessoa] = useState("");
+  const [idPrimeira, setIdPrimeira] = useState(0);
+  const [idSegunda, setIdSegunda] = useState(0);
   const [parentesco, setParentesco] = useState("");
 
   useEffect(() => {
@@ -31,14 +31,12 @@ function CriarRelacao() {
     e.preventDefault();
     setErrMsg("");
     // não permitir relacionamento com a mesma pessoa
-    if (primeiraPessoa === segundaPessoa) {
+    if (idPrimeira === idSegunda) {
       setErrMsg("Não é possível criar relação com a mesma pessoa")
       return;
     }
 
-    // primeira e segunda pessoa estão no formato "1 - nome"
-    const idPrimeira = primeiraPessoa.split(" - ")[0];
-    const idSegunda = segundaPessoa.split(" - ")[0];
+    console.log(idPrimeira, idSegunda);
 
     // cria os objetos das relações
     const relacaoPessoa1 = {
@@ -61,9 +59,6 @@ function CriarRelacao() {
     pessoas[idPrimeira].relacoes.push(relacaoPessoa1);
     pessoas[idSegunda].relacoes.push(relacaoPessoa2);
     localStorage.setItem("pessoas", JSON.stringify(pessoas));
-
-    console.log(pessoas[idPrimeira]);
-    console.log(primeiraPessoa, segundaPessoa, parentesco);
   }
   
   return (
@@ -72,27 +67,24 @@ function CriarRelacao() {
         <h2>Criar Relação</h2>
         <p className="relacao-erro">{errMsg}</p>
         <label>Pessoa 1:</label>
-        <input 
-          list="pessoa1"
-          onChange={(e) => setPrimeiraPessoa(e.target.value)}
+        <select 
+          onChange={(e) => setIdPrimeira(Number(e.target.value))}
           required
-        />
-          <datalist id="pessoa1">
-            {pessoas?.map((pessoa) => (
-              <option key={pessoa.id} value={`${pessoa.id} - ${pessoa.nome}`}/>
-            ))}
-          </datalist>
+        >
+          {pessoas?.map((pessoa) => (
+            <option key={pessoa.id} value={pessoa.id}>{pessoa.nome}</option>
+          ))}
+        </select>
         <label>Pessoa 2:</label>
-        <input
+        <select
           list="pessoa2"
-          onChange={(e) => setSegundaPessoa(e.target.value)}
+          onChange={(e) => setIdSegunda(Number(e.target.value))}
           required
-        />
-          <datalist id='pessoa2'>
-            {pessoas?.map((pessoa) => (
-              <option key={pessoa.id} value={`${pessoa.id} - ${pessoa.nome}`}/>
-            ))}
-          </datalist>
+        >
+          {pessoas?.map((pessoa) => (
+            <option key={pessoa.id} value={pessoa.id}>{pessoa.nome}</option>
+          ))}
+        </select>
         <label>Parentesco</label>
         <input 
           list="parentesco"
