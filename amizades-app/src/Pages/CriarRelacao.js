@@ -1,16 +1,6 @@
 import '../Styles/relacao.css';
 import { useEffect, useState } from "react";
-
-const relacoesLookUp = {
-  "Amigo": "Amigo",
-  "Pai/Mãe": "Filho/Filha",
-  "Irmã/Irmão": "Irmã/Irmão",
-  "Filho/Filha": "Pai/Mãe",
-  "Avô/Avó": "Neta/Neto",
-  "Primo/Prima": "Primo/Prima",
-  "Tio/Tia": "Sobrinho/Sobrinha",
-  "Marido/Esposa": "Marido/Esposa"
-}
+import { relacoesLookUp } from '../Utils/grafos';
 
 function CriarRelacao() {
 

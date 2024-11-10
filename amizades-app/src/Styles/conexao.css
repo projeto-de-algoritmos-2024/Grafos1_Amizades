@@ -2,26 +2,45 @@
   display: flex;
   padding-left: 50px;
   width: 100%;
+  gap: 40%;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: left;
   align-items: center;
 }
 
 .conexao-form {
-    background-color: #282828;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    gap: 10px;
+  background-color: #282828;
+  width: 30%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
 }
 
 .conexao-form label {
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
 }
 
 .conexao-form button {
-    margin-top: 20px;
+  margin-top: 20px;
+}
+
+.conexao-caminho {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.conexao-pessoa {
+  background-color: #282828;
+  padding: 10px;
+  border-radius: 10px;
 }
