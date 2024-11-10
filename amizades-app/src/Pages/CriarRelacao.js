@@ -8,7 +8,7 @@ function CriarRelacao() {
   const [errMsg, setErrMsg] = useState("");
   const [idPrimeira, setIdPrimeira] = useState(0);
   const [idSegunda, setIdSegunda] = useState(0);
-  const [parentesco, setParentesco] = useState("");
+  const [parentesco, setParentesco] = useState("Amigo/Amiga");
 
   const parentescos = [
     "Amigo/Amiga",
@@ -63,7 +63,7 @@ function CriarRelacao() {
     // limpa seleções
     setIdPrimeira(0);
     setIdSegunda(0);
-    setParentesco(0);
+    setParentesco("Amigo/Amiga");
   }
   
   return (

@@ -5,7 +5,7 @@ function Grafo({ grafo }) {
 
   const options = {
     layout: {
-      hierarchical: true
+      hierarchical: false
     },
     nodes: {
       font: {
