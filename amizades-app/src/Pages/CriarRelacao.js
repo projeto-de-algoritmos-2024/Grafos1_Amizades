@@ -1,6 +1,6 @@
 import '../Styles/relacao.css';
 import { useEffect, useState } from "react";
-import { relacoesLookUp } from '../Utils/grafos';
+import { relacoesLookUp } from '../Utils/algoritmos';
 
 function CriarRelacao() {
 

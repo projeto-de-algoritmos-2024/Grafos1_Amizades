@@ -22,40 +22,45 @@ export const mostrarConexao = (pessoas, idInicial, idDestino) => {
     const pessoaAtual = pilha.pop();
     visitados.add(pessoaAtual.id);
     if (pessoaAtual.id === idDestino) {
-      return gerarCaminho(pessoas, arvore, idInicial, idDestino);
-    } 
+      return gerarGrafoCaminho(pessoas, arvore, idInicial, idDestino);
+    }
     pessoaAtual.relacoes.forEach(relacao => {
       if (!visitados.has(relacao.id)) {
         pilha.push(pessoas[relacao.id]);
-        arvore[relacao.id] = pessoaAtual.id;
+        arvore[relacao.id] = {
+          id: pessoaAtual.id, 
+          parentesco: relacao.parentesco 
+        };
       }
     });
   }
   return null;
 }
 
-// recebe uma árvore e gera uma lista de caminho entre duas pessoas
-const gerarCaminho = (pessoas, arvore, idInicial, idDestino) => {
-  console.log(arvore);
-  let idAtual = idDestino;
-  let idPai = arvore[idAtual];
-  let relacao = pessoas[idAtual].relacoes.find((relacao => relacao.id === idPai)) 
-  const caminho = [];
-  caminho.unshift({
-    pessoa: pessoas[idAtual],
-    relacao: pessoas[idAtual].relacoes.find((relacao => relacao.id === idPai))
-  });
-
-  while (idAtual !== idInicial) {
-    idAtual = idPai;
-    idPai = arvore[idAtual];
-    caminho.unshift({
-      pessoa: pessoas[idAtual],
-      relacao: pessoas[idAtual].relacoes.find((relacao => relacao.id === idPai))
-    });
+// recebe uma árvore e gera um grafo de caminho entre duas pessoas
+const gerarGrafoCaminho = (pessoas, arvore, idInicial, idDestino) => {
+  let grafo = {
+    nodes: [],
+    edges: []
   }
 
-  console.log(caminho);
+  let idAtual = idDestino;
+  let relacaoPai = arvore[idAtual];
+  let pessoaAtual = pessoas[idAtual];
 
-  return caminho;
+  // adiciona a primeira pessoa
+  grafo.nodes.push({ id: idAtual, label: pessoaAtual.nome });
+  grafo.edges.push({ from: relacaoPai.id, to: idAtual, label: relacaoPai.parentesco });
+
+  while (idAtual !== idInicial) {
+    idAtual = arvore[idAtual].id;
+    relacaoPai = arvore[idAtual];
+    pessoaAtual = pessoas[idAtual];
+    grafo.nodes.push({ id: idAtual, label: pessoaAtual.nome });
+    if (relacaoPai) {
+      grafo.edges.push({ from: relacaoPai.id, to: idAtual, label: relacaoPai.parentesco });  
+    }
+  }
+
+  return grafo;
 }

@@ -1,6 +1,7 @@
 import '../Styles/conexao.css';
 import { useEffect, useState } from "react";
-import { mostrarConexao, relacoesLookUp } from '../Utils/grafos';
+import { mostrarConexao } from '../Utils/algoritmos';
+import Grafo from '../Components/Grafo';
 
 function MostrarConexao() {
 
@@ -52,18 +53,9 @@ function MostrarConexao() {
       </form>
 
       <div className="conexao-caminho">
-        {caminho?.map((conexao, index) => (
-          <div key={index} className="conexao-item">
-            {conexao.relacao && (
-              <div className="conexao-relacao">
-                <p>|</p>
-                <p>({relacoesLookUp[conexao.relacao.parentesco]})</p>
-                <p>v</p>
-              </div>
-            )}
-            <p className="conexao-pessoa">{conexao.pessoa.nome}</p>
-          </div>
-        ))}
+        {caminho && (
+          <Grafo grafo={caminho}/>
+        )}
       </div>
     </div>
   );

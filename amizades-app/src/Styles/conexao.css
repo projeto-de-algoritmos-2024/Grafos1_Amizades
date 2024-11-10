@@ -2,8 +2,7 @@
   display: flex;
   padding-left: 50px;
   width: 100%;
-  gap: 40%;
-  flex-wrap: wrap;
+  gap: 10%;
   flex-direction: row;
   justify-content: left;
   align-items: center;
@@ -30,17 +29,8 @@
 }
 
 .conexao-caminho {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  text-align: center;
-  max-height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.conexao-pessoa {
-  background-color: #282828;
-  padding: 10px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #666666;
   border-radius: 10px;
 }
