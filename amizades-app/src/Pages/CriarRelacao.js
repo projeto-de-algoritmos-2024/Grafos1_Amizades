@@ -10,6 +10,18 @@ function CriarRelacao() {
   const [idSegunda, setIdSegunda] = useState(0);
   const [parentesco, setParentesco] = useState("");
 
+  const parentescos = [
+    "Amigo/Amiga",
+    "Pai/Mãe",
+    "Irmã/Irmão",
+    "Filho/Filha",
+    "Avô/Avó",
+    "Neta/Neto",
+    "Primo/Prima",
+    "Tio/Tia",
+    "Marido/Esposa",
+  ]
+
   useEffect(() => {
     const pessoasCadastradas = JSON.parse(localStorage.getItem("pessoas")) || [];
     if (pessoasCadastradas) {
@@ -25,8 +37,6 @@ function CriarRelacao() {
       setErrMsg("Não é possível criar relação com a mesma pessoa")
       return;
     }
-
-    console.log(idPrimeira, idSegunda);
 
     // cria os objetos das relações
     const relacaoPessoa1 = {
@@ -49,16 +59,22 @@ function CriarRelacao() {
     pessoas[idPrimeira].relacoes.push(relacaoPessoa1);
     pessoas[idSegunda].relacoes.push(relacaoPessoa2);
     localStorage.setItem("pessoas", JSON.stringify(pessoas));
+
+    // limpa seleções
+    setIdPrimeira(0);
+    setIdSegunda(0);
+    setParentesco(0);
   }
   
   return (
     <div className="relacao-container">
       <form className="relacao-form" onSubmit={handleSubmit}>
         <h2>Criar Relação</h2>
-        <p className="relacao-erro">{errMsg}</p>
+        <p className="erro">{errMsg}</p>
         <label>Pessoa 1:</label>
         <select 
           onChange={(e) => setIdPrimeira(Number(e.target.value))}
+          value={idPrimeira}
           required
         >
           {pessoas?.map((pessoa) => (
@@ -67,8 +83,8 @@ function CriarRelacao() {
         </select>
         <label>Pessoa 2:</label>
         <select
-          list="pessoa2"
           onChange={(e) => setIdSegunda(Number(e.target.value))}
+          value={idSegunda}
           required
         >
           {pessoas?.map((pessoa) => (
@@ -76,22 +92,15 @@ function CriarRelacao() {
           ))}
         </select>
         <label>Parentesco</label>
-        <input 
-          list="parentesco"
+        <select 
           onChange={(e) => setParentesco(e.target.value)}
+          value={parentesco}
           required
-        />
-          <datalist id="parentesco">
-            <option value="Amigo"/>
-            <option value="Pai/Mãe"/>
-            <option value="Irmã/Irmão"/>
-            <option value="Filho/Filha"/>
-            <option value="Avô/Avó"/>
-            <option value="Neta/Neto"/>
-            <option value="Primo/Prima"/>
-            <option value="Tio/Tia"/>
-            <option value="Marido/Esposa"/>
-          </datalist>
+        >
+          {parentescos.map((opcao) => (
+            <option value={opcao}>{opcao}</option>
+          ))}
+        </select>
         <button>Confirmar</button>
       </form>
     </div>
