@@ -11,7 +11,7 @@
 
 ## Sobre
 
-![Logo Amizades](/amizades-app/src/assets/logo.png)
+![Logo Amizades](/amizades-app/public/logo192.png)
 
 O projeto Amizades é uma aplicação web que permite o cadastro de pessoas e relações familiares ou de amizade por meio de sua interface. A aplicação tem outras funcionalidades que permitem a observaçaõ de forma visual de grafos das relações criadas entre as pessoas cadastradas, é possível ver conexões, grau de relações e família.
 
