@@ -1,10 +1,13 @@
 import '../Styles/familia.css';
 import { useEffect, useState } from "react";
+import { mostrarFamilia } from '../Utils/algoritmos';
+import Grafo from '../Components/Grafo';
 
 function MostrarFamilia() {
 
   const [pessoas, setPessoas] = useState([]);
-  const [primeiraPessoa, setPrimeiraPessoa] = useState("");
+  const [idPessoa, setIdPessoa] = useState(0);
+  const [grafo, setGrafo] = useState();
 
   useEffect(() => {
     const pessoasCadastradas = JSON.parse(localStorage.getItem("pessoas")) || [];
@@ -15,7 +18,9 @@ function MostrarFamilia() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(primeiraPessoa);
+    const grafo = mostrarFamilia(pessoas, idPessoa);
+    setGrafo(grafo);
+    console.log(grafo);
   }
 
   return (
@@ -23,15 +28,19 @@ function MostrarFamilia() {
       <form className="familia-form" onSubmit={handleSubmit}>
         <h2>Mostrar Familia</h2>
         <label>Pessoa 1:</label>
-        <input list="pessoa1" onChange={(e) => setPrimeiraPessoa(e.target.value)}/>
-          <datalist id="pessoa1">
-            {pessoas?.map((pessoa) => (
-              <option key={pessoa.nome} value={pessoa.nome}/>
-            ))}
-          </datalist>
+        <select value={idPessoa} onChange={(e) => setIdPessoa(Number(e.target.value))}>
+          {pessoas?.map((pessoa) => (
+            <option key={pessoa.nome} value={pessoa.id}>{pessoa.nome}</option>
+          ))}
+        </select>
         <button>Confirmar</button>
       </form>
       
+      <div className="familia-grafo">
+        {grafo && (
+          <Grafo grafo={grafo}/>
+        )}
+      </div>
     </div>
   );
 }

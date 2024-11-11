@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import CadastrarPessoa from "./Pages/CadastrarPessoa";
 import CriarRelacao from "./Pages/CriarRelacao";
-import GrauParentesco from "./Pages/GrauParentesco";
+import GrauRelacao from "./Pages/GrauRelacao";
 import MostrarConexao from "./Pages/MostrarConexao";
 import MostrarFamilia from "./Pages/MostrarFamilia";
 import Navbar from "./Components/Navbar";
@@ -16,7 +16,7 @@ function App() {
         <Route path="/criar-relacao" element={<CriarRelacao />} />
         <Route path="/mostrar-conexao" element={<MostrarConexao />} />
         <Route path="/mostrar-familia" element={<MostrarFamilia />} />
-        <Route path="/grau-parentesco" element={<GrauParentesco />} />
+        <Route path="/grau-relacao" element={<GrauRelacao />} />
       </Routes>
     </div>
   );
