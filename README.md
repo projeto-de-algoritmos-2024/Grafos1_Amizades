@@ -16,7 +16,12 @@
 O projeto Amizades é uma aplicação web que permite o cadastro de pessoas e relações familiares ou de amizade por meio de sua interface. A aplicação tem outras funcionalidades que permitem a observaçaõ de forma visual de grafos das relações criadas entre as pessoas cadastradas, é possível ver conexões, grau de relações e família.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+
+![Screenshot 1](assets/screenshot1.png)
+
+![Screenshot 2](assets/screenshot2.png)
+
+![Screenshot 3](assets/screenshot3.png)
 
 ## Instalação 
 **Linguagem**: `JavaScript`<br>
@@ -50,7 +55,7 @@ npm start
 Cadastre pessoas na respectiva tela, preenchendo seus campos de informações, e crie relações entre as pessoas cadastradas para possibilitar a visualização das conexões nas demais telas.
 
 ## Apresentação
-[video de apresentação aqui]()
+[video de apresentação aqui](https://www.youtube.com/watch?v=F5JjI1GLjrg)
 
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/F5JjI1GLjrg?si=Rr6v0q0w7Nx2RvTh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
