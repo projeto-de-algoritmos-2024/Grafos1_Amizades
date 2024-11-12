@@ -93,7 +93,9 @@ export const mostrarGrauRelacao = (pessoas, idInicial, grau) => {
   while (fila.length && camada <= grau) {
     const tamanhoCamada = fila.length;
     for (let i = 0; i < tamanhoCamada; i++) {
-      const idAtual = fila.shift();
+      console.log(fila);
+      const idAtual = fila.pop();
+      console.log(i, idAtual, visitados);
       grafo.nodes.push({ id: idAtual, label: pessoas[idAtual].nome });
       pessoas[idAtual].relacoes.forEach(relacao => {
         if (!visitados.has(relacao.id)) {
@@ -109,6 +111,7 @@ export const mostrarGrauRelacao = (pessoas, idInicial, grau) => {
     }
     camada++;
   }
+  console.log(grafo)
   return grafo;
 }
 
